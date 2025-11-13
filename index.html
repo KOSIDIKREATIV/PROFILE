@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Nwodo - Video Editor Portfolio</title>
+    
+    <!-- SEO Meta Description -->
+    <meta name="description" content="Paul Nwodo: A data-driven Digital Content & Video Editor with 5+ years of experience in social media, brand video, and more. Expert in DaVinci Resolve & CapCut.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark blue-gray */
+            color: #f3f4f6;
+        }
+
+        /* Custom scrollbar (optional but nice) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #4f46e5; /* Indigo */
+            border-radius: 20px;
+        }
+
+        /* Portfolio filter button styling */
+        .filter-btn {
+            @apply py-2 px-5 rounded-full text-sm font-semibold text-gray-300 transition-all duration-300;
+        }
+        .filter-btn.active,
+        .filter-btn:hover {
+            @apply bg-indigo-600 text-white shadow-lg;
+        }
+        
+        /* Video Modal Styling */
+        #video-modal {
+            @apply fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 invisible transition-opacity duration-300;
+        }
+        #video-modal.open {
+            @apply opacity-100 visible;
+        }
+        #video-modal-content {
+            @apply bg-black rounded-lg shadow-2xl overflow-hidden w-full max-w-4xl transform scale-95 transition-transform duration-300;
+        }
+        #video-modal.open #video-modal-content {
+            @apply scale-100;
+        }
+        #video-iframe {
+            @apply w-full aspect-video;
+        }
+        
+        /* Testimonial Card Styling */
+        .testimonial-card {
+            @apply bg-gray-900 border border-gray-800 rounded-lg p-6 shadow-xl;
+            border-left: 4px solid #6366f1; /* Indigo border */
+        }
+
+        /* NEW: 3D Text Effect */
+        .text-3d {
+            text-shadow: 
+                1px 1px 0px rgba(0, 0, 0, 0.5),
+                2px 2px 0px rgba(0, 0, 0, 0.4),
+                3px 3px 0px rgba(0, 0, 0, 0.3),
+                4px 4px 0px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-gray-900/80 backdrop-blur-md border-b border-gray-800 shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Name -->
+                <a href="#home" class="text-2xl font-bold text-white transition-colors hover:text-indigo-400">
+                    Paul Nwodo
+                </a>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-gray-300 hover:text-indigo-400 font-medium transition-colors">Home</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-indigo-400 font-medium transition-colors">Portfolio</a>
+                    <a href="#about" class="text-gray-300 hover:text-indigo-400 font-medium transition-colors">About</a>
+                    <a href="#testimonials" class="text-gray-300 hover:text-indigo-400 font-medium transition-colors">Testimonials</a>
+                    <a href="#contact" class="text-gray-300 hover:text-indigo-400 font-medium transition-colors">Contact</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <a href="#contact" class="hidden md:inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-5 rounded-full transition-all duration-300 transform hover:scale-105">
+                    Let's Talk
+                </a>
+                
+                <!-- Mobile Menu Button (Simple) -->
+                <div class="md:hidden">
+                    <button class="text-gray-300 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen min-h-[700px] flex items-center justify-center text-center overflow-hidden">
+            <!-- Background Video -->
+            <div class="absolute inset-0 z-0 overflow-hidden">
+                <!-- 
+                    VIDEO REPLACEMENT:
+                    Replace the 'src' attribute below with the direct .mp4 link to your showreel.
+                -->
+                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                    <!-- This is a placeholder video. Send me your .mp4 link to replace this. -->
+                    <source src="https://res.cloudinary.com/dbsxq8v0m/video/upload/v1762955553/Video_Editor_s_Creative_Journey_Motion_Graphics_vxgtfe.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-black/70"></div>
+            </div>
+            
+            <div class="relative z-10 p-4">
+                <!-- NEW: Brand Name -->
+                <p class="text-xl sm:text-2xl font-semibold text-indigo-400 mb-4 tracking-widest uppercase text-3d">
+                    KOSIDI.KREATIV
+                </p>
+                
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tighter text-3d">
+                    Captivating Visual Stories
+                </h1>
+                <p class="text-lg sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 font-light">
+                    Hi, I'm Paul Nwodo. A data-driven Digital Content & Video Editor based in Lagos.
+                </p>
+                <a href="#portfolio" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
+                    View My Work
+                </a>
+            </div>
+            
+            <!-- Scroll Down Arrow -->
+            <a href="#portfolio" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 text-white animate-bounce">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7-7-7 7"></path></svg>
+            </a>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24 sm:py-32 bg-gray-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-6">My Portfolio</h2>
+                <p class="text-lg text-gray-400 text-center max-w-2xl mx-auto mb-16">
+                    A selection of my work, from corporate videos and commercials to social media content and music videos.
+                </p>
+                
+                <!-- Filter Buttons -->
+                <div class="flex justify-center flex-wrap gap-3 mb-12">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="commercial">Commercials</button>
+                    <button class="filter-btn" data-filter="music">Music Videos</button>
+                    <button class="filter-btn" data-filter="corporate">Corporate</button>
+                    <button class="filter-btn" data-filter="social">Reels / Social</button>
+                </div>
+                
+                <!-- Portfolio Grid -->
+                <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Portfolio Item 1 (Social / Reel) - UPDATED -->
+                    <div class="portfolio-item group" data-category="social" data-video-src="https://www.youtube.com/embed/9JUwmZpGQ6o">
+                        <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                            <!-- Using a portrait placeholder (9:16 aspect ratio) -->
+                            <img src="https://placehold.co/400x711/374151/c4b5fd?text=Reel:+Top+5+Meme+Coins" 
+                                 alt="Thumbnail for Top 5 Meme Coins (CryptoAnnix)" 
+                                 class="w-full h-96 object-cover object-center transition-transform duration-300 group-hover:scale-110">
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+                                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                <h3 class="text-lg font-bold text-white">Top 5 Meme Coins</h3>
+                                <span class="text-sm font-medium text-indigo-300">Reels / Social | CryptoAnnix</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 2 (Social / Reel) - UPDATED -->
+                    <div class="portfolio-item group" data-category="social" data-video-src="https://www.youtube.com/embed/HJ4pINSF8qI">
+                        <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                            <!-- Using a portrait placeholder (9:16 aspect ratio) -->
+                            <img src="https://placehold.co/400x711/374151/a5b4fc?text=Reel:+Crypto+Dip" 
+                                 alt="Thumbnail for How to Survive a Crypto Dip (CryptoAnnix)" 
+                                 class="w-full h-96 object-cover object-center transition-transform duration-300 group-hover:scale-110">
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+                                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                <h3 class="text-lg font-bold text-white">How to Survive a Crypto Dip</h3>
+                                <span class="text-sm font-medium text-indigo-300">Reels / Social | CryptoAnnix</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 3 (Commercial) -->
+                    <!-- 
+                        PROJECT SLOT:
+                        Send me your YouTube link for this project!
+                    -->
+                    <div class="portfolio-item group" data-category="commercial" data-video-src="https://www.youtube.com/embed/u31-N1EWQ-M">
+                        <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                            <img src="https://placehold.co/600x400/374151/e0e7ff?text=Brand+Commercial" 
+                                 alt="Thumbnail for Brand Commercial project" 
+                                 class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+                                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                <h3 class="text-lg font-bold text-white">Brand Commercial</h3>
+                                <span class="text-sm font-medium text-indigo-300">Commercial</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NEW: Portfolio Item 4 (Music Video) -->
+                    <div class="portfolio-item group" data-category="music" data-video-src="https://www.youtube.com/embed/Axjo58jfXtk">
+                        <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                            <img src="https://placehold.co/600x400/374151/f0abfc?text=Music+Video:+BLOW" 
+                                 alt="Thumbnail for BLOW ft. Viky-J (Official Music Video)" 
+                                 class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+                                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                <h3 class="text-lg font-bold text-white">BLOW ft. Viky-J (Official Music Video)</h3>
+                                <span class="text-sm font-medium text-indigo-300">Music Video</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UPDATED: Portfolio Item 5 (Corporate) - Judgement Day Red Carpet -->
+                    <div class="portfolio-item group" data-category="corporate" data-video-src="https://www.youtube.com/embed/ZnT-UjE-s-c">
+                        <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                            <img src="https://placehold.co/600x400/374151/d1d5db?text=Deepwell+Event+Red+Carpet" 
+                                 alt="Thumbnail for Deepwell Entertainment Judgement Day 3 Red Carpet" 
+                                 class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+                                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                <h3 class="text-lg font-bold text-white">Deepwell Entertainment: Judgement Day 3 (Red Carpet)</h3>
+                                <span class="text-sm font-medium text-indigo-300">Corporate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UPDATED: Portfolio Item 6 (Corporate) - Judgement Day Championship -->
+                    <div class="portfolio-item group" data-category="corporate" data-video-src="https://www.youtube.com/embed/SMlWGFDJYMQ">
+                        <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                            <img src="https://placehold.co/600x400/374151/bbf7d0?text=Judgement+Day+Championship" 
+                                 alt="Thumbnail for Judgement Day Championship Round (Part 1)" 
+                                 class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+                                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                <h3 class="text-lg font-bold text-white">Judgement Day: Championship Round (Part 1)</h3>
+                                <span class="text-sm font-medium text-indigo-300">Corporate</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- NEW: "View More" Button -->
+                <div class="text-center mt-16">
+                    <a href="https://drive.google.com/drive/folders/1cOfc4IGnZft351kJLU0HEQf2hmGbtxAO?usp=drive_link" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center bg-gray-700 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        View More Projects
+                        <!-- External link icon -->
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-24 sm:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                    <!-- About Me Image -->
+                    <div class="flex-shrink-0">
+                        <img src="https://res.cloudinary.com/dbsxq8v0m/image/upload/v1763033576/Gemini_Generated_Image_itejagitejagitej_o8ny3f.png" 
+                             alt="Paul Nwodo, professional video editor in Lagos, Nigeria"
+                             class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl border-4 border-gray-700">
+                    </div>
+                    
+                    <!-- About Me Text -->
+                    <div class="flex-1">
+                        <h2 class="text-4xl font-extrabold mb-4">About Me</h2>
+                        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                            Hi, I'm Paul Nwodo, a data-driven Digital Content & Video Editor with 5+ years of experience. I specialize in social media optimization, brand video production, and high-volume content creation.
+                        </p>
+                        <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                            I'm an expert in DaVinci Resolve, CapCut, and AI-driven tools, delivering engaging, platform-specific visuals. I have a proven record of growing a major social media page by 57% in under a year through strategic content management and creative storytelling.
+                        </p>
+                        
+                        <!-- Skills / Services -->
+                        <h3 class="text-2xl font-bold mb-4">My Services</h3>
+                        <div class="grid grid-cols-2 gap-4 text-gray-200">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                <span>Video Editing & Storytelling</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.98 9.11c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                                <span>Motion Graphics</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-1.657 1.657M11 7.343V17.657"></path></svg>
+                                <span>Color Grading</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.636 5.636a9 9 0 0112.728 0m-12.728 0A5 5 0 018.464 15.536"></path></svg>
+                                <span>Social Media Strategy</span>
+                            </div>
+                        </div>
+
+                        <!-- Technical Skills -->
+                        <h3 class="text-2xl font-bold mb-4 mt-8">Technical Skills</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-gray-700 text-indigo-300 py-1 px-3 rounded-full text-sm font-medium">DaVinci Resolve</span>
+                            <span class="bg-gray-700 text-indigo-300 py-1 px-3 rounded-full text-sm font-medium">CapCut</span>
+                            <span class="bg-gray-700 text-indigo-300 py-1 px-3 rounded-full text-sm font-medium">Adobe Premiere Pro</span>
+                            <span class="bg-gray-700 text-indigo-300 py-1 px-3 rounded-full text-sm font-medium">Runway ML</span>
+                            <span class="bg-gray-700 text-indigo-300 py-1 px-3 rounded-full text-sm font-medium">Pika Labs</span>
+                            <span class="bg-gray-700 text-indigo-300 py-1 px-3 rounded-full text-sm font-medium">AI Video Generation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-24 sm:py-32 bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-6">What My Clients Say</h2>
+                <p class="text-lg text-gray-400 text-center max-w-2xl mx-auto mb-16">
+                    Real feedback from clients and collaborators.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Video Testimonial Card -->
+                    <div class="testimonial-card group cursor-pointer" data-video-src="https://www.youtube.com/embed/Lp6vbJRkJu4">
+                        <div class="flex justify-center items-center h-48 bg-gray-800 rounded-md relative overflow-hidden">
+                            <img src="https://placehold.co/600x400/374151/818cf8?text=Video+Testimonial" 
+                                 alt="Video Testimonial" 
+                                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+                                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                        </div>
+                        <p class="text-lg font-semibold text-white mt-4">Video Feedback from Vimerse</p>
+                        <p class="text-gray-400">CEO, Video Editing Service</p>
+                    </div>
+
+                    <!-- NEW: Image Testimonials Grid -->
+                    <div class="testimonial-card">
+                        <h3 class="text-lg font-semibold text-white mb-4">Client Feedback</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            <!-- 
+                                IMAGE TESTIMONIALS:
+                                These are your 5 screenshots.
+                            -->
+                            <img src="https://res.cloudinary.com/dbsxq8v0m/image/upload/v1763037107/Picture_Evidence_4_zd7wpv.jpg" alt="Testimonial screenshot 1" class="rounded-md w-full h-auto object-cover cursor-pointer hover:scale-150 transition-transform">
+                            <img src="https://res.cloudinary.com/dbsxq8v0m/image/upload/v1763037107/Picture_Evidence_cx4sux.jpg" alt="Testimonial screenshot 2" class="rounded-md w-full h-auto object-cover cursor-pointer hover:scale-150 transition-transform">
+                            <img src="https://res.cloudinary.com/dbsxq8v0m/image/upload/v1763037107/Picture_Evidence_5_ljpfs6.jpg" alt="Testimonial screenshot 3" class="rounded-md w-full h-auto object-cover cursor-pointer hover:scale-150 transition-transform">
+                            <img src="https://res.cloudinary.com/dbsxq8v0m/image/upload/v1763037107/Picture_Evidence_2_nhhflr.jpg" alt="Testimonial screenshot 4" class="rounded-md w-full h-auto object-cover cursor-pointer hover:scale-150 transition-transform">
+                            <img src="https://res.cloudinary.com/dbsxq8v0m/image/upload/v1763037107/Picture_Evidence_3_nmirk0.jpg" alt="Testimonial screenshot 5" class="rounded-md w-full h-auto object-cover cursor-pointer hover:scale-150 transition-transform">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NEW: Leave a Review Button -->
+                <div class="text-center mt-16">
+                    <a href="mailto:Paulnwodo4@gmail.com?subject=My%20Testimonial%20for%20KOSIDI.KREATIV"
+                       class="inline-flex items-center bg-gray-700 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Leave a Review
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 21l1.949-4.255A9.863 9.863 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 sm:py-32">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-6">Let's Create Something Amazing</h2>
+                <p class="text-lg text-gray-400 text-center max-w-2xl mx-auto mb-12">
+                    Have a project in mind or just want to say hi? Fill out the form below or send me an email.
+                </p>
+                
+                <!-- Simple Formspree Contact Form -->
+                <!-- 
+                    SETUP:
+                    1. Go to formspree.io and create a new form.
+                    2. Replace "YOUR_UNIQUE_ID" with your form's ID.
+                -->
+                <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST" class="bg-gray-900 border border-gray-800 p-8 rounded-xl shadow-2xl">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+                            <input type="text" name="name" id="name" required class="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
+                            <input type="email" name="email" id="email" required class="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                        <input type="text" name="subject" id="subject" class="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div class="mt-6">
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Your Message</label>
+                        <textarea name="message" id="message" rows="5" required class="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
+                            Send Message
+                        </button>
+                    </div>
+
+                    <!-- NEW: WhatsApp Button -->
+                    <div class="text-center mt-6">
+                        <p class="text-gray-400 text-sm mb-4">Or, contact me directly:</p>
+                        <a href="https://wa.me/message/YEQ5ERYPWIQPP1" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
+                            <!-- WhatsApp Icon SVG -->
+                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.06 21.94L7.3 20.58C8.75 21.37 10.36 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2ZM12.04 20.13C10.5 20.13 8.99 19.7 7.69 18.86L7.32 18.64L3.8 19.56L4.74 16.13L4.5 15.75C3.6 14.38 3.12 12.86 3.12 11.21C3.12 7.09 7.18 3.7 12.04 3.7C16.9 3.7 20.96 7.09 20.96 11.91C20.96 16.73 16.9 20.13 12.04 20.13ZM17.34 14.22C17.13 14.12 16.13 13.64 15.93 13.56C15.73 13.48 15.58 13.44 15.44 13.68C15.29 13.92 14.89 14.4 14.73 14.56C14.58 14.72 14.43 14.74 14.18 14.64C13.94 14.54 13.06 14.23 12.01 13.31C11.17 12.58 10.61 11.69 10.45 11.41C10.29 11.13 10.41 11 10.54 10.88C10.66 10.77 10.8 10.6 10.93 10.45C11.06 10.3 11.11 10.2 11.2 10.04C11.29 9.88 11.24 9.74 11.19 9.64C11.14 9.54 10.74 8.54 10.58 8.16C10.43 7.78 10.28 7.82 10.16 7.81C10.05 7.8 9.89 7.8 9.74 7.8C9.59 7.8 9.34 7.84 9.14 8.08C8.93 8.32 8.39 8.82 8.39 9.92C8.39 11.02 9.17 12.06 9.32 12.22C9.47 12.38 10.75 14.49 12.82 15.3C14.89 16.12 15.42 15.82 15.82 15.77C16.22 15.72 17.11 15.19 17.29 14.9C17.48 14.61 17.48 14.33 17.43 14.22Z"></path></svg>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <p class="text-gray-400">&copy; 2025 Paul Nwodo | KOSIDI.KREATIV. All rights reserved.</p>
+                <p class="text-sm text-gray-500">Designed with inspiration from MotionVfx.</p>
+                <div class="flex flex-col sm:flex-row gap-x-6 gap-y-2 mt-4 text-gray-400">
+                    <a href="mailto:Paulnwodo4@gmail.com" class="hover:text-indigo-400 transition-colors">Paulnwodo4@gmail.com</a>
+                    <span class="hidden sm:block">|</span>
+                    <a href="tel:+2348153916323" class="hover:text-indigo-400 transition-colors">+234 815 391 6323</a>
+                </div>
+            </div>
+            <!-- Social Media Links -->
+            <div classs="flex space-x-6">
+                <!-- 
+                    SOCIAL LINKS:
+                    Send me your links for Vimeo, Instagram, etc. and I will replace the '#'
+                -->
+                <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors" title="Vimeo">
+                    <span class="sr-only">Vimeo</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.04 7.21c-.15 1.74-.46 3.7-1.18 5.27-1.02 2.21-2.4 3.84-4.22 4.9-1.81 1.05-3.8 1.58-5.96 1.58-2.28 0-4.3-.6-6.07-1.81-1.3-.84-2.2-1.98-2.72-3.48-.46-1.34-.69-2.92-.69-4.72 0-2.11.33-3.8.98-5.07.65-1.27 1.58-2.2 2.76-2.82 1.18-.62 2.5-1.09 3.9-1.4C10.66.01 11.83 0 12.87 0c2.4 0 4.38.6 5.96 1.81 1.58 1.2 2.61 2.81 3.06 4.8.19.86.3 1.76.35 2.6zM11.63 8.3c.09-.32.14-.6.14-.83 0-.61-.15-1.12-.44-1.53-.3-.41-.7-.61-1.18-.61-.53 0-.98.24-1.34.73-.36.49-.55 1.12-.55 1.9 0 .2.02.4.06.61l.9 3.23c.23.82.5 1.51.81 2.05.31.54.7.81 1.17.81.47 0 .86-.27 1.18-.81.31-.54.54-1.22.68-2.05l.9-3.23c.04-.21.06-.41.06-.61 0-.79-.19-1.42-.55-1.91-.36-.49-.81-.73-1.34-.73-.47 0-.85.2-1.15.61-.29.41-.44.92-.44 1.53 0 .23.05.51.14.83l.9 3.24c.04.14.06.26.06.37 0 .34-.09.58-.27.71-.18.13-.4.2-.64.2-.24 0-.46-.07-.64-.2-.18-.13-.27-.37-.27-.71 0-.11.02-.23.06-.37l.9-3.24z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/nwodo-paul-809a6316b" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-indigo-400 transition-colors" title="LinkedIn">
+                    <span class="sr-only">LinkedIn</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors" title="Instagram">
+                    <span class="sr-only">Instagram</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.784.305-1.48.73-2.122 1.374C1.373 2.662.94 3.358.63 4.142.333 4.902.13 5.77.072 7.05C.012 8.33 0 8.74 0 12s.015 3.67.072 4.947c.06 1.277.26 2.148.558 2.913.306.78.73 1.478 1.373 2.122.643.642 1.34.966 2.122 1.273.765.296 1.636.498 2.913.558C8.33 23.988 8.74 24 12 24s3.67-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.78-.306 1.478-.73 2.122-1.273.642-.643.966-1.34 1.273-2.122.296-.765.498-1.636.558-2.913.06-1.277.072-1.687.072-4.947s-.015-3.67-.072-4.947c-.06-1.277-.262-2.148-.558-2.913-.306-.78-.73-1.478-1.273-2.122C21.34.94 20.642.63 19.86.333c-.765-.296-1.636-.498-2.913-.558C15.67.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.07 1.17.055 1.805.248 2.227.415.562.217.96.477 1.382.896.419.42.678.818.896 1.38.167.42.36 1.055.413 2.227.056 1.265.07 1.646.07 4.85s-.015 3.585-.07 4.85c-.055 1.17-.248 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.818.678-1.38.896-.42.167-1.055.36-2.227.413-1.265.056-1.646.07-4.85.07s-3.585-.015-4.85-.07c-1.17-.055-1.805-.248-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.678-.818-.896-1.38-.167-.42-.36-1.055-.413-2.227-.056-1.265-.07-1.646-.07-4.85s.015-3.585.07-4.85c.055-1.17.248 1.805.413-2.227.217-.562.477.96.896-1.382.42-.419.818-.678 1.38-.896.42-.167 1.055.36 2.227.413 1.265-.056 1.646.07 4.85-.07zm0 5.43c-3.53 0-6.4 2.87-6.4 6.4s2.87 6.4 6.4 6.4 6.4-2.87 6.4-6.4-2.87-6.4-6.4-6.4zm0 10.667c-2.35 0-4.267-1.917-4.267-4.267s1.917-4.267 4.267-4.267 4.267 1.917 4.267 4.267-1.917 4.267-4.267 4.267zm6.4-11.833c-.742 0-1.333.59-1.333 1.333s.59 1.333 1.333 1.333 1.333-.59 1.333-1.333-.59-1.333-1.333-1.333z" clip-rule="evenodd"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal">
+        <div id="video-modal-content">
+            <button id="close-modal-btn" class="absolute -top-10 right-0 text-white text-4xl">&times;</button>
+            <div class="aspect-video">
+                <iframe id="video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            // Portfolio Filtering
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Show/Hide items
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Video Modal
+            const modal = document.getElementById('video-modal');
+            const modalContent = document.getElementById('video-modal-content');
+            const iframe = document.getElementById('video-iframe');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            
+            const openModal = (videoSrc) => {
+                if (!videoSrc || videoSrc === '#') {
+                    console.warn('No video source provided for this item.');
+                    return; // Don't open modal if there's no video src
+                }
+                iframe.src = videoSrc + "?autoplay=1"; // Add autoplay
+                modal.classList.add('open');
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('open');
+                iframe.src = ""; // Stop the video from playing
+            };
+
+            // Open modal from Portfolio
+            portfolioItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const videoSrc = item.getAttribute('data-video-src');
+                    openModal(videoSrc);
+                });
+            });
+            
+            // Open modal from Testimonials
+            document.querySelectorAll('.testimonial-card[data-video-src]').forEach(item => {
+                item.addEventListener('click', () => {
+                    const videoSrc = item.getAttribute('data-video-src');
+                    openModal(videoSrc);
+                });
+            });
+
+            // Close modal
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('open')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
