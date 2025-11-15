@@ -35,33 +35,66 @@
 
         /* Portfolio filter button styling */
         .filter-btn {
-            @apply py-2 px-5 rounded-full text-sm font-semibold text-gray-300 transition-all duration-300;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 600;
+            color: rgb(209 213 219);
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
         }
         .filter-btn.active,
         .filter-btn:hover {
-            @apply bg-indigo-600 text-white shadow-lg;
+            background-color: #4f46e5;
+            color: #ffffff;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
         /* Video Modal Styling */
         #video-modal {
-            @apply fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 invisible transition-opacity duration-300;
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
         }
         #video-modal.open {
-            @apply opacity-100 visible;
+            opacity: 1;
+            visibility: visible;
         }
         #video-modal-content {
-            @apply bg-black rounded-lg shadow-2xl overflow-hidden w-full max-w-4xl transform scale-95 transition-transform duration-300;
+            background-color: #000;
+            border-radius: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            width: 100%;
+            max-width: 56rem;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
         }
         #video-modal.open #video-modal-content {
-            @apply scale-100;
+            transform: scale(1);
         }
         #video-iframe {
-            @apply w-full aspect-video;
+            width: 100%;
+            aspect-ratio: 16 / 9;
         }
         
         /* Testimonial Card Styling */
         .testimonial-card {
-            @apply bg-gray-900 border border-gray-800 rounded-lg p-6 shadow-xl;
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             border-left: 4px solid #6366f1; /* Indigo border */
         }
 
@@ -171,11 +204,28 @@
                 <!-- Portfolio Grid -->
                 <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Portfolio Item 1 (Social / Reel) - UPDATED -->
+                    <!-- NEW FIRST ITEM: Portfolio Item 1 (Commercial) -->
+                    <div class="portfolio-item group" data-category="commercial" data-video-src="https://www.youtube.com/embed/K2GV0r6mW_o">
+                        <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                            <img src="https://i9.ytimg.com/vi/K2GV0r6mW_o/mqdefault.jpg?sqp=COjn4sgG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGE8gVyhlMA8=&rs=AOn4CLBZ1_Y6YNIRtKDWe7jKMdp9DAh99w" 
+                                 alt="Thumbnail for Brand Commercial project" 
+                                 class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+                                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                <h3 class="text-lg font-bold text-white">Brand Commercial</h3>
+                                <span class="text-sm font-medium text-indigo-300">Commercial</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 2 (Social / Reel) - UPDATED -->
                     <div class="portfolio-item group" data-category="social" data-video-src="https://www.youtube.com/embed/9JUwmZpGQ6o">
                         <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
                             <!-- Using a portrait placeholder (9:16 aspect ratio) -->
-                            <img src="https://placehold.co/400x711/374151/c4b5fd?text=Reel:+Top+5+Meme+Coins" 
+                            <img src="https://i.ytimg.com/vi/9JUwmZpGQ6o/oardefault.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLBcdIjM0p_XKD8BjoDg3whxLr-GyQ" 
                                  alt="Thumbnail for Top 5 Meme Coins (CryptoAnnix)" 
                                  class="w-full h-96 object-cover object-center transition-transform duration-300 group-hover:scale-110">
                             <!-- Overlay -->
@@ -189,11 +239,11 @@
                         </div>
                     </div>
 
-                    <!-- Portfolio Item 2 (Social / Reel) - UPDATED -->
+                    <!-- Portfolio Item 3 (Social / Reel) - UPDATED -->
                     <div class="portfolio-item group" data-category="social" data-video-src="https://www.youtube.com/embed/HJ4pINSF8qI">
                         <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
                             <!-- Using a portrait placeholder (9:16 aspect ratio) -->
-                            <img src="https://placehold.co/400x711/374151/a5b4fc?text=Reel:+Crypto+Dip" 
+                            <img src="https://i.ytimg.com/vi/HJ4pINSF8qI/oar2.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLBl2UG9JtU3xCQn5QxuMSs89g4zxg" 
                                  alt="Thumbnail for How to Survive a Crypto Dip (CryptoAnnix)" 
                                  class="w-full h-96 object-cover object-center transition-transform duration-300 group-hover:scale-110">
                             <!-- Overlay -->
@@ -206,32 +256,29 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Portfolio Item 3 (Commercial) -->
-                    <!-- 
-                        PROJECT SLOT:
-                        Send me your YouTube link for this project!
-                    -->
-                    <div class="portfolio-item group" data-category="commercial" data-video-src="https://www.youtube.com/embed/u31-N1EWQ-M">
+                    
+                    <!-- Portfolio Item 4 (Social / Reel) -->
+                    <div class="portfolio-item group" data-category="social" data-video-src="https://www.youtube.com/embed/rpBtBWh4qCs">
                         <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
-                            <img src="https://placehold.co/600x400/374151/e0e7ff?text=Brand+Commercial" 
-                                 alt="Thumbnail for Brand Commercial project" 
-                                 class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <!-- Using a portrait placeholder (9:16 aspect ratio) -->
+                            <img src="https://i.ytimg.com/vi/rpBtBWh4qCs/oar2.jpg?sqp=-oaymwEoCJUDENAFSFqQAgHyq4qpAxcIARUAAIhC2AEB4gEKCBgQAhgGOAFAAQ==&rs=AOn4CLD8xECIWd6ZoyeaWeizqHHRp-AqMg" 
+                                 alt="Thumbnail for Crypto Market Parabolic Phase (CryptoAnnix)" 
+                                 class="w-full h-96 object-cover object-center transition-transform duration-300 group-hover:scale-110">
                             <!-- Overlay -->
                             <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
                                 <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
                             </div>
                             <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
-                                <h3 class="text-lg font-bold text-white">Brand Commercial</h3>
-                                <span class="text-sm font-medium text-indigo-300">Commercial</span>
+                                <h3 class="text-lg font-bold text-white">Crypto Market Parabolic Phase</h3>
+                                <span class="text-sm font-medium text-indigo-300">Reels / Social | CryptoAnnix</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- NEW: Portfolio Item 4 (Music Video) -->
+
+                    <!-- Portfolio Item 5 (Music Video) -->
                     <div class="portfolio-item group" data-category="music" data-video-src="https://www.youtube.com/embed/Axjo58jfXtk">
                         <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
-                            <img src="https://placehold.co/600x400/374151/f0abfc?text=Music+Video:+BLOW" 
+                            <img src="https://i.ytimg.com/vi/Axjo58jfXtk/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGGUgXChTMA8=&rs=AOn4CLAVqEcb8NHGMrR723QWwu3Aad6P_A" 
                                  alt="Thumbnail for BLOW ft. Viky-J (Official Music Video)" 
                                  class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
                             <!-- Overlay -->
@@ -245,10 +292,10 @@
                         </div>
                     </div>
 
-                    <!-- UPDATED: Portfolio Item 5 (Corporate) - Judgement Day Red Carpet -->
+                    <!-- Portfolio Item 6 (Corporate) - Judgement Day Red Carpet -->
                     <div class="portfolio-item group" data-category="corporate" data-video-src="https://www.youtube.com/embed/ZnT-UjE-s-c">
                         <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
-                            <img src="https://placehold.co/600x400/374151/d1d5db?text=Deepwell+Event+Red+Carpet" 
+                            <img src="https://i.ytimg.com/an_webp/ZnT-UjE-s-c/mqdefault_6s.webp?du=3000&sqp=CNyg4sgG&rs=AOn4CLA5dsSzQwVsn_tYkySclYaT5rOzxQ" 
                                  alt="Thumbnail for Deepwell Entertainment Judgement Day 3 Red Carpet" 
                                  class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
                             <!-- Overlay -->
@@ -262,10 +309,10 @@
                         </div>
                     </div>
 
-                    <!-- UPDATED: Portfolio Item 6 (Corporate) - Judgement Day Championship -->
+                    <!-- Portfolio Item 7 (Corporate) - Judgement Day Championship -->
                     <div class="portfolio-item group" data-category="corporate" data-video-src="https://www.youtube.com/embed/SMlWGFDJYMQ">
                         <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer">
-                            <img src="https://placehold.co/600x400/374151/bbf7d0?text=Judgement+Day+Championship" 
+                            <img src="https://i.ytimg.com/an_webp/SMlWGFDJYMQ/mqdefault_6s.webp?du=3000&sqp=CIj44cgG&rs=AOn4CLCiZRG8mMR3xY2LbP6KqwnF0gQ2Wg" 
                                  alt="Thumbnail for Judgement Day Championship Round (Part 1)" 
                                  class="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110">
                             <!-- Overlay -->
@@ -365,7 +412,7 @@
                     <!-- Video Testimonial Card -->
                     <div class="testimonial-card group cursor-pointer" data-video-src="https://www.youtube.com/embed/Lp6vbJRkJu4">
                         <div class="flex justify-center items-center h-48 bg-gray-800 rounded-md relative overflow-hidden">
-                            <img src="https://placehold.co/600x400/374151/818cf8?text=Video+Testimonial" 
+                            <img src="https://i9.ytimg.com/vi/Lp6vbJRkJu4/mq2.jpg?sqp=CIDH4sgG-oaymwEoCMACELQB8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYZSBZKE4wDw==&rs=AOn4CLDSFLXwULZSfX3Qfh2hsBuTZpfvSw" 
                                  alt="Video Testimonial" 
                                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
@@ -419,7 +466,7 @@
                     1. Go to formspree.io and create a new form.
                     2. Replace "YOUR_UNIQUE_ID" with your form's ID.
                 -->
-                <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST" class="bg-gray-900 border border-gray-800 p-8 rounded-xl shadow-2xl">
+                <form action="https://formspree.io/f/xovywgno" method="POST" class="bg-gray-900 border border-gray-800 p-8 rounded-xl shadow-2xl">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
